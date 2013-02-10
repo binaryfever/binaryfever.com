@@ -1,9 +1,10 @@
 markdown: rdiscount
 pygments: true
 permalink: /posts/:title
-auto: true
+auto: false
 rdiscount:
   extensions: [smart]
+exclude: tasks
 
 name: Fred McHale
 url: http://binaryfever.com
