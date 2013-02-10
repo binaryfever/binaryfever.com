@@ -1,0 +1,51 @@
+---
+layout: layout
+---
+
+<section class="content">
+  <h1>
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  </h1>
+
+  <section class="byline">
+    {{ page.date | date: "%B %e, %Y" }}
+  </section>
+
+  {{ content }}
+
+  <!-- TODO: bio here -->
+  <section class="meta">
+    <h3>Discussion, links, and tweets</h3>
+    <section class="copy">
+      <a href="https://twitter.com/{{ site.twitter }}" target="_blank">
+        <img src="{{ site.gravatar_url }}?s=142" height="50" width="50" />
+      </a>
+
+      <p>
+        I'm a freelance developer as well as the Online Director of the School of <a href="http://www.aaunewmedia.com/">Web Design and New Media</a> at AAU. <a href="https://twitter.com/{{ site.twitter }}" target="_blank">Follow me on Twitter</a> or <a href="https://alpha.app.net/binaryfever">App.net</a>;
+        you'll enjoy my posts. I take care to carefully craft each one. Or at least aim to make
+        you giggle. Or offended. One of those two&mdash; I haven't decided which yet.
+      </p>
+
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="{{ site.twitter }}">Tweet</a>
+      <a href="http://twitter.com/{{ site.twitter }}" class="twitter-follow-button" data-show-count="false">Follow @{{ site.twitter }}</a><br /><br />
+
+      <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+
+      <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'binaryfever'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+  </section>
+</section>
