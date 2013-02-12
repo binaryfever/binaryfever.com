@@ -1,0 +1,28 @@
+---           
+layout: post
+title: JRuby Desktop App for SoftToken II
+date: 2011-10-29 05:22:24 UTC
+updated: 2011-10-29 05:22:24 UTC
+comments: false
+categories: javascript jruby vpn
+---
+
+Lately I have been noticing how many mouse clicks it takes me to achieve certain tasks on the computer.  After I ran into this article from the <a href="http://rubylearning.com/blog/2010/09/29/an-introduction-to-desktop-apps-with-ruby/">RubyLearning Blog</a> I decided to attempt to lessen the number of clicks for these tasks.  One of the applications I use quite often is SoftToken II when VPN&#39;ing into work from home/coffee shop/etc...  Thought it might be useful to create an tray application that would allow me easy access to SoftToken.  Enough jibber jabber I&#39;ll just get right into the code.<br>
+<strong><em>soft_token.rb</em></strong>
+<br>
+<pre style="white-space: pre-wrap; word-wrap: break-word;">class SoftToken
+  include Java
+
+  def self.start(command = &quot;./soft_token&quot;, working_directory =   &#39;/Applications/SofToken II.app/Contents/MacOS&#39;)
+  cmd = String.new(command)
+  work_dir = java::io::File.new(working_directory)
+
+  begin
+    r = java.lang.Runtime.getRuntime().exec(cmd, nil, work_dir)
+    rescue Exception =&gt; e
+      $stderr.print &quot;Java told me: #{e}&quot;
+    end
+  end
+end</pre>
+<span style="text-decoration: underline;"><strong>What it does:</strong></span>  The SoftToken class takes the command and working directory of the application you want to run.  I use the Java Runtime class exec command to actually start up the application.  You you might also notice the ruby exception handeling with begin and rescue. I found this article to be quite helpful in understanding the differences between JRuby and Java exceptions <a href="http://lorenzod8n.wordpress.com/2007/05/24/dealing-with-java-exceptions-in-jruby/">Dealing with Java exceptions in JRuby</a> .  If an exception does occur it is just being printed to stderr.  One thing to notice also is that I simlinked soft_token to the SoftToken II executable.<br>
+<a href="http://blog.binaryfever.com/2010/09/jruby-desktop-app-for-softtoken-ii.html#more">Read more »</a><img src="http://feeds.feedburner.com/~r/binaryfever/CIuY/~4/WcR9ZDu2nIw" height="1" width="1"/>

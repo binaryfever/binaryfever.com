@@ -1,0 +1,15 @@
+---           
+layout: post
+title: Case-insensitive sorting in PERL
+date: 2012-09-29 04:38:50 UTC
+updated: 2012-09-29 04:38:50 UTC
+comments: false
+categories: code
+---
+
+<pre  style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;;background-image:URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif);padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"> #!/usr/bin/perl  
+ #Small example script just because I keep forgetting how to do case-insensitive sorting on an array in PERL.  
+ @values = qw(fred trevor Burt steve Greg Alcedine);  
+ @sorted_values = sort { "\L$a" cmp "\L$b" } @values;  
+ print "@sorted_values\n";  
+</code></pre><img src="http://feeds.feedburner.com/~r/binaryfever/CIuY/~4/akWIQNDxNBQ" height="1" width="1"/>

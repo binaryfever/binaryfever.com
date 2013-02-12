@@ -1,0 +1,73 @@
+---           
+layout: post
+title: Code Kata Two
+date: 2012-09-29 04:36:28 UTC
+updated: 2012-09-29 04:36:28 UTC
+comments: false
+categories: code
+---
+
+<br>
+The first Code Kata is dealing with Binary Searches on a sorted array.  Pretty standard stuff when it comes to the iterative and recursive approaches. Coming up with three other implementations is going to be fun!<br>
+<br>
+Here are my solutions for the iterative and recursive approach.  I&#39;ll add to the Binarychop class as I come up with other approaches.<br>
+<br>
+<pre style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;;background-image:URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif);padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"> #binarychop.rb  
+ class Binarychop  
+  def iterative(n, array)  
+   min = 0  
+   max = array.size  
+   while min &lt; max  
+    mid = (min + max) / 2  
+    if n &gt; array[mid]  
+     min = mid + 1  
+    elsif n &lt; array[mid]  
+     max = mid - 1  
+    else  
+     return mid  
+    end  
+   end  
+   return -1  
+  end  
+  def recursive(n, array, min, max)  
+   return -1 if max &lt; min  
+   mid = (min + max) / 2  
+   if n &lt; array[mid]  
+    recursive(n, array, min, mid - 1)  
+   elsif n &gt; array[mid]  
+    recursive(n, array, mid + 1, max)  
+   else  
+    return mid  
+   end  
+  end  
+ end  
+</code></pre>
+<br>
+and the rspec tests just because it is my first time using rspec outside of rails.<br>
+<br>
+<pre style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;;background-image:URL(http://2.bp.blogspot.com/_z5ltvMQPaa8/SjJXr_U2YBI/AAAAAAAAAAM/46OqEP32CJ8/s320/codebg.gif);padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"> #binarychop_spec.rb  
+ require &#39;binarychop&#39;  
+ require File.dirname(__FILE__) + &#39;/helper&#39;  
+ require File.dirname(__FILE__) + &#39;/../binarychop.rb&#39;  
+ describe Binarychop, &quot;#iterative&quot; do  
+  it &quot;should return -1 if number not found&quot; do  
+   binarychop = Binarychop.new  
+   binarychop.iterative(3, [1, 2, 4]).should == -1  
+  end  
+  it &quot;should return an integer if the number is found&quot; do   
+   binarychop = Binarychop.new  
+   binarychop.iterative(3, [2, 3, 4]).should_not == -1  
+  end  
+ end  
+ describe Binarychop, &quot;#recursive&quot; do  
+  it &quot;should return -1 if max is less then min&quot; do  
+   binarychop = Binarychop.new  
+   binarychop.recursive(3, [1, 2, 4], 0, -1).should == -1  
+  end  
+  it &quot;should return an integer if the number is found&quot; do  
+   binarychop = Binarychop.new  
+   binarychop.recursive(3, [1, 2, 3], 0, 3).should_not == -1  
+  end  
+ end  
+</code></pre>
+<a href="http://blog.binaryfever.com/2011/06/code-kata-two.html#more">Read more »</a><img src="http://feeds.feedburner.com/~r/binaryfever/CIuY/~4/Zhe6HdTn91Y" height="1" width="1"/>
