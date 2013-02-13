@@ -7,7 +7,7 @@ meta-robots: "noodp, noydir, noindex, noarchive, follow"
 <ul>
 {% for post in page.period_posts %}
 <li> 
-    <a href="">{{ post.title }}</a><br>
+    <a href="{{ post.url }}/index.html">{{ post.title }}</a><br>
     <span class="entry-meta">Published: {{ post.date | date: "%B %d, %Y" }}</span>
 </li>
 {% endfor %}
