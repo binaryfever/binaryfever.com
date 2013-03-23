@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html>
 <head>
   <meta charset="utf-8">
   <title>
@@ -29,17 +29,24 @@
 </head>
 
 <body>
+<div id="container">
+  <header>
+    <h1><a href="/index.html" title="binaryfever.com">{{ site.name }}</a></h1>
+    
+    <nav role="navigation">
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/schedule.html">Teaching</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content" role="main">
+<!--  
   <section class="sidebar">
-    <a href="/">
-      <img src="{{ site.gravatar_url }}?s=150" height="75" width="75" class="avatar" />
-    </a>
-
-    <section class="name">
-      <a href="/">
-        <span id="fname">{{ site.name|split:' '|first }}</span>
-        <span id="lname">{{ site.name|split:' '|last }}</span>
-      </a>
-    </section>
+    
 
     <section class="meta">
       <a href="https://github.com/{{ site.github }}" target="_blank"><img src="/images/github.png" /></a>
@@ -61,8 +68,56 @@
         <li><a href="/2011/index.html">2011</a></li>
       </ul>
     </section>
-  </section>
-  {{ content }}
+  </section>-->
+    {{ content }}
+  </div>
+  <aside id="sidebar">
+    <section id="about">
+      <h3>About me</h3>
+           <a href="https://twitter.com/{{ site.twitter }}" target="_blank">
+        <img src="{{ site.gravatar_url }}?s=142" height="50" width="50" />
+      </a>
+
+      <p>
+        I'm a freelance developer as well as the Online Director of the School of <a href="http://www.aaunewmedia.com/">Web Design and New Media</a> at AAU. <a href="https://twitter.com/{{ site.twitter }}" target="_blank">Follow me on Twitter</a> or <a href="https://alpha.app.net/binaryfever">App.net</a>;
+        you'll enjoy my posts. I take care to carefully craft each one. Or at least aim to make
+        you giggle. Or offended. One of those two&mdash; I haven't decided which yet.
+      </p>
+
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="{{ site.twitter }}">Tweet</a>
+      <a href="http://twitter.com/{{ site.twitter }}" class="twitter-follow-button" data-show-count="false">Follow @{{ site.twitter }}</a><br /><br />
+
+      <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+
+      
+    </section>
+    
+    <section id="categories">
+      <h3>Archives</h3>
+      <ul>
+        <li><a href="/2012/index.html">2012</a></li>
+        <li><a href="/2011/index.html">2011</a></li>
+      </ul>
+    </section>
+    
+    <!--<section id="search" role="search">
+      <h3>Search</h3>
+      
+      <form method="get" action="#">
+        <fieldset>
+          <input type="text" id="searchbar" placeholder="I'm looking for&hellip;" />
+          <input type="submit" id="searchsubmit" value="Search" />
+        </fieldset>
+      </form>
+      
+    </section>-->
+    
+  </aside>
+  <div id="footer-container">
+  <footer>
+    <p id="back-top"><a href="#">Back to top</a></p>
+  </footer>
+</div>
 </body>
 
 </html>
