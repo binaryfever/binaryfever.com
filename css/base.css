@@ -10,6 +10,14 @@ body {
   color: #666;
 }
 
+::selection {
+	background: #fff2a8;
+}
+
+::-moz-selection {
+	background: #fff2a8;
+}
+
 a {
   color: #4b7ea9; font-style: italic;
 }
